@@ -239,7 +239,7 @@ function Calculator() {
                 handleGoalChange(newGoals);
 
                 const newCarbon: GoalsProps = {
-                    name: "Carbon Emission (%)",
+                    name: "Carbon Emission (ratio)",
                     value: response.data.carbon / 100,
                 } as GoalsProps
                 handleGoalChange(newCarbon);
