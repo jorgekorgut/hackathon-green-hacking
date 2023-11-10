@@ -23,6 +23,7 @@ class variable:
 #    country = "France"
 def optimize(nemploye, growth, carbon, mingrowth, variablesFreedom, variablesValue):
 
+
     parabolic = lambda zero1, zero2: lambda x: -(x-zero1)*(x-zero2)
     linear = lambda minx, maxx, miny, maxy: lambda x: (x-minx) * (maxy-miny)/(maxx-minx) + miny
     zero = lambda x: 0
@@ -34,6 +35,9 @@ def optimize(nemploye, growth, carbon, mingrowth, variablesFreedom, variablesVal
     workingdays = variable("workingdays", 0, 1, 1, variablesValue[4], growth_fun=parabolic(0,1), carbon_fun=linear(0,1,0, -234/365))
 
     variables = [diet, coffee, remote, transport, workingdays]
+    
+    variablesFreedom = variablesFreedom[:len(variables)]
+    variablesValue = variablesValue[:len(variables)]
 
     usedVarIndices = []
     for i in range(len(variables)):
