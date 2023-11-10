@@ -4,7 +4,8 @@ const initialValue: CompanyProps = {
     name: "Societe Generale",
     specs: [
         { name: "Country", value: "France" },
-        { name: "Number of employees", value: "117000" }
+        { name: "Number of employees", value: "117000" },
+        { name: "Turnover", value: "28100000000" }
     ],
     goals: [
         { name: "Growth (%)", value: 0.05, min: -0.5, max: 0.5, data: undefined },
@@ -18,6 +19,7 @@ const initialValue: CompanyProps = {
         { name: "Teleworking rate per week", value: 0.3, blocked: false, min: 0, max: 7 },
         { name: "Public transportation taken per day", value: 0.3, blocked: false, min: 0, max: 5 },
         { name: "Number of workdays per week", value: 5, blocked: false, min: 3, max: 5 },
+        { name: "Number of trees planted per month (1e3)", value: 60, blocked: false, min: 0, max: 100 },
     ],
     relationship: [
         { firstVariable: "Vegetarian meal rate per week", secondVariable: "Growth (%)", linkFunction: "Math.sqrt(x)/100" },
