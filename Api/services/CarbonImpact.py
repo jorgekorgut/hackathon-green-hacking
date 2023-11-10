@@ -7,7 +7,7 @@ class variable:
         self.max = max
         self.default = default
         self.default = default
-        self.value = value if value else default
+        self.value = value if value is not None else default
         self.carbon_fun = carbon_fun
         self.growth_fun = growth_fun
     def get_default_growth(self):
@@ -28,7 +28,7 @@ def optimize(nemploye, growth, carbon, mingrowth, variablesFreedom, variablesVal
     zero = lambda x: 0
 
     diet = variable("diet", 0, 1, 0.3, variablesValue[0], growth_fun=linear(0,1,1,-2), carbon_fun=linear(0,1,7,0.5))
-    coffee = variable("coffee", 0, 1, 1.36, variablesValue[1], growth_fun=linear(0,1,-0.33, 0.66), carbon_fun=linear(0,1,0, 1.4855))
+    coffee = variable("coffee", 0, 1, 0.136, variablesValue[1], growth_fun=linear(0,1,-0.33, 0.66), carbon_fun=linear(0,1,0, 1.4855))
     remote = variable("remote", 0, 1, 0.15, variablesValue[2], growth_fun=parabolic(0,1), carbon_fun=linear(0,1,0, -234/365))
     transport = variable("transport", 0, 1, 0.3, variablesValue[3], growth_fun=zero, carbon_fun=linear(0,1,0, -1))
     workingdays = variable("workingdays", 0, 1, 1, variablesValue[4], growth_fun=parabolic(0,1), carbon_fun=linear(0,1,0, -234/365))

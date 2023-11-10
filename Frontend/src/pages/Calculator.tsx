@@ -213,7 +213,7 @@ function Calculator() {
                 })[0].value
 
                 const growth = 10000;
-                const carbon = 63500;
+                const carbon = 635000;
 
                 const mingrowth = companyProps.goals.filter((goals: GoalsProps) => {
                     if (goals.name === "Growth (%)") {

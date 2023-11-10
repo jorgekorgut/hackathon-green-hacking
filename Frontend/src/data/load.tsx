@@ -14,10 +14,10 @@ const initialValue: CompanyProps = {
         { name: "Brand corporate identity", value: 0.6, min: -1, max: 1, data: undefined }
     ],
     attributes: [
-        { name: "Vegetarian meal rate per week", value: 0.6, blocked: false, min: 0, max: 7 },
-        { name: "Number of coffees consumed per employee per day", value: 1, blocked: false, min: 0, max: 10 },
-        { name: "Teleworking rate per week", value: 0.3, blocked: false, min: 0, max: 7 },
-        { name: "Public transportation taken per day", value: 0.3, blocked: false, min: 0, max: 5 },
+        { name: "Vegetarian meal rate per week", value: 2.1, blocked: false, min: 0, max: 7 },
+        { name: "Number of coffees consumed per employee per day", value: 1.36, blocked: false, min: 0, max: 10 },
+        { name: "Teleworking rate per week", value: 1.05, blocked: false, min: 0, max: 7 },
+        { name: "Public transportation taken per day", value: 1.5, blocked: false, min: 0, max: 5 },
         { name: "Number of workdays per week", value: 5, blocked: false, min: 3, max: 5 },
         { name: "Number of trees planted per month (1e3)", value: 60, blocked: false, min: 0, max: 100 },
     ],
