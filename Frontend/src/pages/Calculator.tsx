@@ -216,7 +216,7 @@ function Calculator() {
                 const carbon = 635000;
 
                 const mingrowth = companyProps.goals.filter((goals: GoalsProps) => {
-                    if (goals.name === "Growth (%)") {
+                    if (goals.name === "Growth (ratio)") {
                         return true;
                     }
                     return false
@@ -233,7 +233,7 @@ function Calculator() {
 
                 const response: any = await minimizeCarbonImpact(nemploye, growth, carbon, mingrowth, freedom, variablesValue);
                 const newGoals: GoalsProps = {
-                    name: "Growth (%)",
+                    name: "Growth (ratio)",
                     value: response.data.growth / 100,
                 } as GoalsProps
                 handleGoalChange(newGoals);
