@@ -4,7 +4,7 @@ const initialValue: CompanyProps = {
     name: "Societe Generale",
     specs: [
         { name: "Country", value: "France" },
-        { name: "Number of employees", value: "117000" },
+        { name: "Number of employees", value: "138000" },
         { name: "Turnover", value: "28100000000" }
     ],
     goals: [
@@ -14,9 +14,9 @@ const initialValue: CompanyProps = {
         { name: "Brand corporate identity", value: 0.6, min: -1, max: 1, data: undefined }
     ],
     attributes: [
-        { name: "Vegetarian meal rate per week", value: 2.1, blocked: false, min: 0, max: 7 },
+        { name: "Vegetarian meal rate per week", value: 2.1, blocked: false, min: 0, max: 5 },
         { name: "Number of coffees consumed per employee per day", value: 1.36, blocked: false, min: 0, max: 10 },
-        { name: "Teleworking rate per week", value: 1.05, blocked: false, min: 0, max: 7 },
+        { name: "Teleworking rate per week", value: 1.05, blocked: false, min: 0, max: 5 },
         { name: "Public transportation taken per day", value: 1.5, blocked: false, min: 0, max: 5 },
         { name: "Number of workdays per week", value: 5, blocked: false, min: 3, max: 5 },
         { name: "Number of trees planted per month (1e3)", value: 60, blocked: false, min: 0, max: 100 },
