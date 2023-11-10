@@ -213,7 +213,7 @@ function Calculator() {
                 })[0].value
 
                 const growth = 10000;
-                const carbon = 635000;
+                const carbon = 63500;
 
                 const mingrowth = companyProps.goals.filter((goals: GoalsProps) => {
                     if (goals.name === "Growth (%)") {
@@ -222,7 +222,16 @@ function Calculator() {
                     return false
                 })[0].value
 
-                const response: any = await minimizeCarbonImpact(nemploye, growth, carbon, mingrowth);
+                const freedom = companyProps.attributes.map((value : AtributesProps)=>{
+                    return !value.blocked;
+                })
+                
+                const variablesValue = companyProps.attributes.map((value : AtributesProps)=>{
+                    return (value.value-value.min)/(value.max-value.min);
+                })
+
+
+                const response: any = await minimizeCarbonImpact(nemploye, growth, carbon, mingrowth, freedom, variablesValue);
                 const newGoals: GoalsProps = {
                     name: "Growth (%)",
                     value: response.data.growth / 100,
@@ -238,14 +247,20 @@ function Calculator() {
                 const updatedAttributes = companyProps.attributes.map((value:AtributesProps)=>{
 
                     if(value.name==="Vegetarian meal rate per week"){
-                        value.value =  response.data.diet * 7;
+                        value.value =  response.data.variablesValue[0] * (value.max-value.min) + value.min;
                     }
                     else if(value.name==="Number of coffees consumed per employee per day"){
-                        value.value =  response.data.coffee;
+                        value.value =  response.data.variablesValue[1] * (value.max-value.min) + value.min;
                     } 
                     else if(value.name==="Teleworking rate per week"){
-                        value.value =  response.data.remote * 7;
+                        value.value =  response.data.variablesValue[2] * (value.max-value.min) + value.min;
                     } 
+                    else if(value.name==="Public transportation taken per day"){
+                        value.value =  response.data.variablesValue[3] * (value.max-value.min) + value.min;
+                    } 
+                    else if(value.name==="Number of workdays per week"){
+                        value.value =  response.data.variablesValue[4] * (value.max-value.min) + value.min;
+                    }
 
                     return value;
                 })

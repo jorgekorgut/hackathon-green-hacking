@@ -27,10 +27,11 @@ class CarbonImpactRequest(BaseModel):
     growth : float
     carbon : float
     mingrowth : float
-
+    variablesFreedom : list[bool]
+    variablesValue : list[float]
 
 @app.post("/minimize/carbon_impact")
 async def minimizeCarbonImpact(request : CarbonImpactRequest):
     print(request)
-    response = optimize(int(request.nemploye), float(request.growth), float(request.carbon), float(request.mingrowth))
+    response = optimize(int(request.nemploye), float(request.growth), float(request.carbon), float(request.mingrowth), request.variablesFreedom, request.variablesValue)
     return response
