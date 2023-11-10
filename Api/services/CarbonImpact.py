@@ -27,9 +27,10 @@ def optimize(nemploye, growth, carbon, mingrowth, variablesFreedom, variablesVal
     parabolic = lambda zero1, zero2: lambda x: -(x-zero1)*(x-zero2)
     linear = lambda minx, maxx, miny, maxy: lambda x: (x-minx) * (maxy-miny)/(maxx-minx) + miny
     zero = lambda x: 0
+    squareroot = lambda x: x**0.5
 
     diet = variable("diet", 0, 1, 0.3, variablesValue[0], growth_fun=linear(0,1,1,-2), carbon_fun=linear(0,1,7,0.5))
-    coffee = variable("coffee", 0, 1, 0.136, variablesValue[1], growth_fun=linear(0,1,-0.33, 0.66), carbon_fun=linear(0,1,0, 1.4855))
+    coffee = variable("coffee", 0, 1, 0.136, variablesValue[1], growth_fun=squareroot, carbon_fun=linear(0,1,0, 1.4855))
     remote = variable("remote", 0, 1, 0.15, variablesValue[2], growth_fun=parabolic(0,1), carbon_fun=linear(0,1,0, -234/365))
     transport = variable("transport", 0, 1, 0.3, variablesValue[3], growth_fun=zero, carbon_fun=linear(0,1,0, -1))
     workingdays = variable("workingdays", 0, 1, 1, variablesValue[4], growth_fun=parabolic(0,1), carbon_fun=linear(0,1,0, -234/365))
